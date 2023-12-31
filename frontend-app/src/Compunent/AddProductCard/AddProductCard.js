@@ -153,7 +153,7 @@ export default function AddProductCard(props){
       navigate("/admin");
       })
       .catch(({ response }) => {
-        if (response.status == 422) {
+        if (response.status === 422) {
           console.log(response.data.errors);
         } else {
           console.log(response.data.message);
