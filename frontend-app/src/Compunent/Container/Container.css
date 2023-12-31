@@ -1,0 +1,25 @@
+.container {
+    border-radius: 25px;
+    margin-top: 0px;
+    color: #000000;
+    width: 90%;
+    padding: 20px;
+  
+  }
+
+
+
+  
+  
+  
+  @media (max-width: 768px) {
+    .main-container {
+      max-width: 90%; 
+    }
+  }
+
+
+
+
+
+  

@@ -1,0 +1,24 @@
+.Footer-Products ul li{
+
+    padding-top: 10px;
+
+    color: red;
+}
+
+.Footer-Shop ul li{
+
+    padding-top: 10px;
+}
+
+.Footer-Info ul li{
+
+    padding-top: 10px;
+}
+.Footer-Shop{
+    width: 100%;
+}
+.footer-icon{
+    padding-right: 10px;
+}
+
+

@@ -1,0 +1,80 @@
+
+  
+  .kunden-Bestellung-section-wrapper {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #ddd;
+    padding: 25px;
+    margin: 10px 0;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .kunden-Bestellung-image {
+    width: 150;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 10px;
+  }
+  
+  .kunden-Bestellung-titel-Color {
+    align-items: center;
+    max-width: 20%;
+    overflow: auto;
+  }
+  
+  .kunden-Bestellung-titel {
+    font-weight: bold;
+    position: relative;
+    top: 1%;
+  }
+  
+  .kunden-Bestellung-color {
+    margin-left: auto;
+    text-align: center;
+    color: #777;
+  }
+  .kunden-Bestellung-counter {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+  }
+  
+  .kunden-Bestellung-counter button {
+    background: #ccc;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 0 5px;
+  }
+  
+  .kunden-Bestellung-counter-high {
+    background: #5cb85c;
+    color: #000000;
+  }
+  
+  .kunden-Bestellung-counter-low {
+    background: #d9534f;
+    color: #000000;
+  }
+  .kunden-Bestellung-counter-value {
+    top: 5px;
+    position: relative;
+  }
+  
+  .kunden-Bestellung-price {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+
+
+  .kunden-Bestellung-x-button {
+    background: #d9534f;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 50px;
+  }

@@ -1,0 +1,116 @@
+.table {
+    width: 100%;
+    overflow: auto;
+}
+
+.table thead {
+    background-color: #f8f9fa;
+}
+
+.table th {
+    text-align: left;
+    padding: 10px;
+}
+
+.table td, .table th {
+    border: 1px solid #dee2e6;
+    width: 200px;
+    word-wrap: break-word;
+}
+
+.beschreibung-TD {
+    width: 200px;
+    height: 200px!important;
+    overflow: auto;
+}
+
+.table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.produkt-verwalten-image {
+    width: 100%;
+    height: 200px!important;
+    object-fit: cover;
+    object-position: center;
+}
+
+.update-button, .delete-button {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    margin-left: 5px;
+}
+
+.update-button:hover, .delete-button:hover {
+    background-color: #0056b3;
+}
+
+.Produkte-update-form{
+
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.foto-with-upload{
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    margin: 20px;
+}
+
+.foto-with-upload img {
+    overflow: auto !important;
+}
+
+@media (max-width: 600px) {
+    .table td, .table th {
+        width: auto;
+        display: block;
+    }
+
+    .table th, .table td {
+        text-align: center;
+    }
+}
+
+
+
+
+
+.search-form {
+    border-radius: 25px;
+    margin-bottom: 50px;
+    display: flex; 
+    width: 100%;
+  }
+  
+  .search-form input {
+    border-radius: 20px;
+    flex-grow: 1; 
+    margin-right: 10px; 
+  }
+  
+
+  
+  
+  @media (max-width: 768px) {
+    .search-form {
+      flex-direction: column; 
+    }
+  
+
+  }
+  

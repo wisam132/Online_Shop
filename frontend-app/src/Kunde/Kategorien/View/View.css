@@ -1,0 +1,25 @@
+.card-body{
+    background-color: rgb(255, 255, 255);
+}
+
+
+
+.size-Button{
+    color: #fff;
+    background-color: grey;
+    border-color: grey;
+}
+
+.size-Button:hover{
+   
+    background-color: rgba(128, 128, 128, 0.8);
+    border-color: rgba(128, 128, 128, 0.8);
+
+}
+
+.size-Button:active {
+    background-color: blue; /* Hier können Sie die gewünschte Hintergrundfarbe festlegen */
+  }
+  
+
+

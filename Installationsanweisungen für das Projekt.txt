@@ -1,0 +1,33 @@
+Notizen:
+
+1. **Frontend-Anwendung:**
+   - Nach der Installation des Projekts führen Sie die folgenden Befehle aus:
+     ```
+     cd frontend-app
+     npm install axios react-router-dom jquery owl.carousel bootstrap react-owl-carousel react-icons jquery-ui-dist
+     ```
+   - Fügen Sie im `package.json` die Zeile `"proxy": "http://127.0.0.1:8000/"` hinzu.
+
+2. **Backend-Anwendung:**
+   - Navigieren Sie zum Backend-Verzeichnis:
+     ```
+     cd backend-app
+     ```
+   - Führen Sie die folgenden Befehle aus:
+     ```
+     npm install axios@1.6.3 laravel-vite-plugin@0.8.1 react-autosuggest@10.1.0 vite@4.5.1
+     ```
+
+3. **Datenbank:**
+   - Um sicherzustellen, dass alles reibungslos funktioniert, führen Sie bitte die folgenden SQL-Anweisungen in Ihrer Datenbank aus:
+     ```sql
+     CREATE DATABASE online_shop;
+     USE online_shop;
+
+     INSERT INTO categories (category_name) VALUES
+       ('kleidung'),
+       ('geraete'),
+       ('moebel');
+     ```
+
+Hinweis: Stellen Sie sicher, dass alle Schritte ordnungsgemäß ausgeführt werden, um eine reibungslose Funktion des Projekts zu gewährleisten.

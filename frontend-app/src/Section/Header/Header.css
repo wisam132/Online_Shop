@@ -1,0 +1,41 @@
+.collapse {
+  margin-left: 100px;
+}
+
+.navbar-light {
+  color: white;
+  background-color: #FFFFFD;
+}
+
+.cont {
+  margin-top: 20px;
+}
+.icon {
+  font-size: 20px;
+}
+
+.navbar-Daten li {
+  padding-left: 10px;
+}
+
+.dropdown{
+  top: 3px;
+}
+
+
+.logo{
+  width: 300px;
+  height: 80px;
+  position: relative;
+
+}
+
+/* Beispiel-CSS für die Anzahl der Artikel im Warenkorb */
+.warenkorb-anzahl {
+  background-color: rgba(181, 180, 191, 0.359); /* Hintergrundfarbe */
+  color: black; /* Textfarbe */
+  border-radius: 50%; /* Rundes Erscheinungsbild */
+  padding: 0.2em 0.5em; /* Innenabstand */
+  top: 2px;
+  position: relative;
+}
