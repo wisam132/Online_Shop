@@ -58,7 +58,6 @@ Route::middleware(['auth:sanctum', 'role:admin'])->group(function () {
 
     Route::get('/get/all/products', [ProductsController::class, 'index']);
 
-    Route::post('admin/register', [AuthController::class, 'Adminregister']);
 
 
 });
@@ -72,3 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('user/logout', [AuthController::class, 'logout']);
 
 });
+
+
+Route::post('admin/register', [AuthController::class, 'Adminregister']);
+
