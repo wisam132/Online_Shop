@@ -18,32 +18,26 @@ const Footer = (props) => {
               <ul className="list-unstyled text-light footer-link-list">
                 <li>
                   <span className="footer-icon">
-                    {" "}
+                    
                     <FaAddressBook />
                   </span>
                   Schäferstraße 02, 13585, Berlin
                 </li>
                 <li>
                   <span className="footer-icon">
-                    {" "}
+                    
                     <FaPhone />
                   </span>
-                  <Link
-                    className="text-decoration-none text-light"
-                    href="tel:010-020-0340 "
-                  >
+                  <Link className="text-decoration-none text-light">
                     0178-6729-702
                   </Link>
                 </li>
                 <li>
                   <span className="footer-icon">
-                    {" "}
+                    
                     <MdEmail />
                   </span>
-                  <Link
-                    className="text-decoration-none text-light"
-                    href="mailto:info@company.com"
-                  >
+                  <Link className="text-decoration-none text-light">
                     w.shekhkhalil@gmail.com
                   </Link>
                 </li>
@@ -59,7 +53,6 @@ const Footer = (props) => {
                   <Link
                     className="text-decoration-none text-light"
                     to={"/shop/kleidung"}
-                    href="#"
                   >
                     Kleidung
                   </Link>
@@ -126,44 +119,7 @@ const Footer = (props) => {
               <div className="w-100 my-3 border-top border-secondary"></div>
             </div>
             <div className="col-auto me-auto">
-              <ul className="list-inline text-left footer-icons">
-                <li className="list-inline-item border border-light rounded-circle text-center">
-                  <a
-                    className="text-light text-decoration-none"
-                    target="_blank"
-                    href="http://facebook.com/"
-                  >
-                    <i className="fab fa-facebook-f fa-lg fa-fw"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item border border-light rounded-circle text-center">
-                  <a
-                    className="text-light text-decoration-none"
-                    target="_blank"
-                    href="https://www.instagram.com/"
-                  >
-                    <i className="fab fa-instagram fa-lg fa-fw"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item border border-light rounded-circle text-center">
-                  <a
-                    className="text-light text-decoration-none"
-                    target="_blank"
-                    href="https://twitter.com/"
-                  >
-                    <i className="fab fa-twitter fa-lg fa-fw"></i>
-                  </a>
-                </li>
-                <li className="list-inline-item border border-light rounded-circle text-center">
-                  <a
-                    className="text-light text-decoration-none"
-                    target="_blank"
-                    href="https://www.linkedin.com/"
-                  >
-                    <i className="fab fa-linkedin fa-lg fa-fw"></i>
-                  </a>
-                </li>
-              </ul>
+              <ul className="list-inline text-left footer-icons"></ul>
             </div>
           </div>
         </div>

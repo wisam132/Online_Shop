@@ -1,19 +1,19 @@
 .search-form {
   border-radius: 25px;
   margin-bottom: 50px;
-  display: flex; 
+  display: flex;
 }
 
 .search-form input {
   border-radius: 20px;
-  flex-grow: 1; 
-  margin-right: 10px; 
+  flex-grow: 1;
+  margin-right: 10px;
 }
 
 .search-button {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #3498db; 
+  background-color: #3498db;
   color: #fff;
   text-decoration: none;
   border-radius: 20px;
@@ -29,12 +29,12 @@
 
 @media (max-width: 768px) {
   .search-form {
-    flex-direction: column; 
+    flex-direction: column;
   }
 
   .search-form > .search-button {
-    max-width: none; 
-    width: 100%; 
-    margin-top: 10px; 
+    max-width: none;
+    width: 100%;
+    margin-top: 10px;
   }
 }

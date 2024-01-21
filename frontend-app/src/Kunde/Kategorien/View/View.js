@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { ViewsSection } from '../../../Compunent/index';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
+import { ViewsSection } from "../../../Compunent/index";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 
-import './View.css';
+import "./View.css";
 
 export default function View() {
   const { id } = useParams();
@@ -13,13 +13,16 @@ export default function View() {
 
   const [user_id, setUser_id] = useState();
 
-  const [product_name, setProduct_name] = useState('');
-  const [product_description, setProduct_description] = useState('');
-  const [product_price, setProduct_price] = useState('');
-  const [product_photo_primary, setProduct_photo_primary] = useState('');
-  const [product_photo_secondary_1, setProduct_photo_secondary_1] = useState(null);
-  const [product_photo_secondary_2, setProduct_photo_secondary_2] = useState(null);
-  const [product_photo_secondary_3, setProduct_photo_secondary_3] = useState(null);
+  const [product_name, setProduct_name] = useState("");
+  const [product_description, setProduct_description] = useState("");
+  const [product_price, setProduct_price] = useState("");
+  const [product_photo_primary, setProduct_photo_primary] = useState("");
+  const [product_photo_secondary_1, setProduct_photo_secondary_1] =
+    useState(null);
+  const [product_photo_secondary_2, setProduct_photo_secondary_2] =
+    useState(null);
+  const [product_photo_secondary_3, setProduct_photo_secondary_3] =
+    useState(null);
   const [size1, setSize1] = useState(null);
   const [size2, setSize2] = useState(null);
   const [size3, setSize3] = useState(null);
@@ -39,10 +42,10 @@ export default function View() {
 
   async function fetchUser() {
     try {
-      const { data } = await axios.get('/api/auth/user');
+      const { data } = await axios.get("/api/auth/user");
       setUser_id(data);
     } catch (error) {
-      console.error('Error fetching user:', error.message);
+      console.error("Error fetching user:", error.message);
     }
   }
 
@@ -83,7 +86,7 @@ export default function View() {
       setSize6(size6);
       setSize7(size7);
     } catch (error) {
-      console.error('Error fetching product:', error.message);
+      console.error("Error fetching product:", error.message);
     }
   }
 
@@ -103,18 +106,18 @@ export default function View() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  
+
     const formData = new FormData();
     formData.append("user_id", user_id.id);
     formData.append("product_price", product_price);
     formData.append("product_id", id);
     formData.append("quantity", quantity);
     formData.append("Size", selectedSize);
-  
+
     try {
       if (selectedSize <= 0) {
         setError("Bitte geben Sie die Größe und die Menge ein!");
-      } else if (quantity === 'Größe') {
+      } else if (quantity === "Größe") {
         setError("Bitte geben Sie die Menge ein!");
       } else {
         const { data } = await axios.post("/api/order/add", formData);
@@ -129,16 +132,26 @@ export default function View() {
       }
     }
   };
-  
-  
 
   return (
     <>
       <ViewsSection
         p_Primary_Photo={`/storage/product/image/${product_photo_primary}`}
-        p_Secondary_Photo1={product_photo_secondary_1 ? `/storage/product/image/secondary1/${product_photo_secondary_1}` : 'https://shorturl.at/jz189'}
-        p_Secondary_Photo2={product_photo_secondary_2 ? `/storage/product/image/secondary2/${product_photo_secondary_2}` : 'https://shorturl.at/jz189'}
-        p_Secondary_Photo3={product_photo_secondary_3 ? `/storage/product/image/secondary3/${product_photo_secondary_3}` : 'https://shorturl.at/jz189'}
+        p_Secondary_Photo1={
+          product_photo_secondary_1
+            ? `/storage/product/image/secondary1/${product_photo_secondary_1}`
+            : "https://shorturl.at/jz189"
+        }
+        p_Secondary_Photo2={
+          product_photo_secondary_2
+            ? `/storage/product/image/secondary2/${product_photo_secondary_2}`
+            : "https://shorturl.at/jz189"
+        }
+        p_Secondary_Photo3={
+          product_photo_secondary_3
+            ? `/storage/product/image/secondary3/${product_photo_secondary_3}`
+            : "https://shorturl.at/jz189"
+        }
         p_Name={product_name}
         p_Desc={product_description}
         p_Price={product_price}
@@ -154,8 +167,8 @@ export default function View() {
         counter={quantity}
         selectedSize={selectedSize}
         handleSubmit={handleSubmit}
-        handleSizeChange = {handleSizeChange}
-        error = {error}
+        handleSizeChange={handleSizeChange}
+        error={error}
       />
     </>
   );

@@ -1,72 +1,64 @@
-/* Stil für das Formular */
 .Adminformular {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    background: rgba(255, 255, 255, 0.5);
-  
-  }
-  
-  /* Stil für Formular-Elemente */
-  .form-group {
-    margin-bottom: 20px;
-  }
-  
-  label {
-    display: block;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"] {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-  }
-  
-  /* Stil für die "Passwort anzeigen" Checkbox */
-  .form-check {
-    margin-top: 10px;
-  }
-  
-  /* Stil für den "Registrieren" Button */
-  .button {
-    display: block;
-    width: 100%;
-    background-color: #007bff;
-    color: #fff;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-  }
-  
-  .button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.5);
+}
 
-  .Admin-zer {
-   
-    position: relative;
-    top: 10px;
-    background-color: #B7B9BA;
-    color: rgb(24, 1, 1);
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif ;
-  }
-  
-  /* Hover-Effekt für die Schaltfläche */
-  .Admin-zer:hover {
-    background-color: rgba(45, 46, 48, 0.8);
-    color: white;
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.form-check {
+  margin-top: 10px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.button:hover {
+  background-color: #0056b3;
+}
+
+.Admin-zer {
+  position: relative;
+  top: 10px;
+  background-color: #b7b9ba;
+  color: rgb(24, 1, 1);
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.Admin-zer:hover {
+  background-color: rgba(45, 46, 48, 0.8);
+  color: white;
 }

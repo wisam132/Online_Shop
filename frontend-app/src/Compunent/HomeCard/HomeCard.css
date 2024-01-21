@@ -1,90 +1,28 @@
+.section-heading {
+  margin-top: 50px;
+}
+.item .down-content {
+  background-color: #fff;
+}
 
-.section-heading{
-    margin-top: 50px;
-  }
-   .item .down-content {
-    background-color: #fff;
-  }
-  
-   .item .down-content h4 {
-    padding: 25px;
-    font-size: 18px;
-    color: #1f272b;
-    text-align: center; 
-    border-bottom: 1px solid #eee;
-    text-decoration: none;
-    
-  }
-  
-  .item .down-content .info {
-    padding: 25px;
-  }
-  
+.item .down-content h4 {
+  padding: 25px;
+  font-size: 18px;
+  color: #1f272b;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+  text-decoration: none;
+}
 
- .item .down-content .info span {
-    color: #a12c2f;
-    font-size: 15px;
-    font-weight: 600;
-    text-align: right;
-    display: inline-block;
-    width: 100%;
-  }
+.item .down-content .info {
+  padding: 25px;
+}
 
-
- /* .owl-nav {
-    text-align: center;
-    position: absolute;
-    width: 100%;
-    top: 50%;
-    transform: translateY(-45px);
-  }
-  
-  .owl-dots {
-    display: inline-block;
-    text-align: center;
-    width: 100%;
-    margin-top: 40px;
-  } */
-  
- /* .owl-dots .owl-dot {
-    transition: all .5s;
-    width: 7px;
-    height: 7px;
-    background-color: #fff;
-    margin: 0px 5px;
-    border-radius: 50%;
-    outline: none;
-  } */
-  
-/* .owl-dots .active {
-    width: 24px;
-    height: 8px;
-    border-radius: 4px;
-  } */
-      
-   /* .owl-nav .owl-prev{
-    margin-right: 10px;
-    outline: none;
-    position: absolute;
-    left: -80px;
-  }
-  
-   .owl-nav .owl-prev span,
-   .owl-nav .owl-next span {
-    opacity: 0;
-  } */
-  
-   /* .owl-nav .owl-prev::before {
-    display: inline-block;
-    font-family: 'FontAwesome';
-    color: #1e1e1e;
-    font-size: 25px;
-    font-weight: 700;
-    content: '\f104';
-    background-color: #fff;
-    width: 50px;
-    height: 1000px;
-    border-radius: 50%;
-    line-height: 50px;
-  } */
-   
+.item .down-content .info span {
+  color: #a12c2f;
+  font-size: 15px;
+  font-weight: 600;
+  text-align: right;
+  display: inline-block;
+  width: 100%;
+}

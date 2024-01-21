@@ -20,12 +20,11 @@ export default function ViewsSection(props) {
               </div>
               <div className="row">
                 <div className="col-1 align-self-center">
-                  <a
-                    href="#multi-item-example"
+                  <Link
+                    to="#multi-item-example"
                     role="button"
                     data-bs-slide="prev"
                   >
-                    <i className="text-dark fas fa-chevron-left"></i>
                     <span
                       className="icon"
                       style={{ color: "black", fontSize: "30px" }}
@@ -33,7 +32,7 @@ export default function ViewsSection(props) {
                       
                       <IoArrowBackSharp />
                     </span>
-                  </a>
+                  </Link>
                 </div>
 
                 <div
@@ -48,7 +47,7 @@ export default function ViewsSection(props) {
                     <div className="carousel-item active">
                       <div className="row">
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={
@@ -62,25 +61,25 @@ export default function ViewsSection(props) {
                                   : "Kein Foto"
                               }
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo2}
                               alt="Product Image 2"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo3}
                               alt="Product Image 3"
                             />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -88,31 +87,31 @@ export default function ViewsSection(props) {
                     <div className="carousel-item">
                       <div className="row">
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo1}
                               alt="Product Image 1"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo2}
                               alt="Product Image 2"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo3}
                               alt="Product Image 3"
                             />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
@@ -120,43 +119,42 @@ export default function ViewsSection(props) {
                     <div className="carousel-item">
                       <div className="row">
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo1}
                               alt="Product Image 1"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo2}
                               alt="Product Image 2"
                             />
-                          </a>
+                          </Link>
                         </div>
                         <div className="col-4">
-                          <a href="#">
+                          <Link to="#">
                             <img
                               className="card-img img-fluid"
                               src={props.p_Secondary_Photo3}
                               alt="Product Image 3"
                             />
-                          </a>
+                          </Link>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="col-1 align-self-center">
-                  <a
-                    href="#multi-item-example"
+                  <Link
+                    to="#multi-item-example"
                     role="button"
                     data-bs-slide="next"
                   >
-                    <i className="text-dark fas fa-chevron-right"></i>
                     <span
                       className="icon"
                       style={{ color: "black", fontSize: "30px" }}
@@ -164,7 +162,7 @@ export default function ViewsSection(props) {
                       
                       <IoArrowForwardSharp />
                     </span>
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>

@@ -31,9 +31,9 @@ return new class extends Migration {
             $table->string('size6')->nullable();
             $table->string('size7')->nullable();
             $table->foreign('category_id')
-                ->references('id')
-                ->on('categories')
-                ->onDelete('cascade');
+            ->references('id')
+            ->on('categories')
+            ->onDelete('cascade');
 
             $table->timestamps();
 

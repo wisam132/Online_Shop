@@ -7,26 +7,23 @@ use Illuminate\Database\Eloquent\Model;
 
 class Order extends Model
 {
-   use HasFactory;
-   protected $fillable = ['user_id', 'product_id', 'quantity', 'product_price'];
+    use HasFactory;
+    protected $fillable = ['user_id', 'product_id', 'quantity', 'product_price'];
 
 
-   public function myOrders()
-   {
+    public function myOrders(){
 
-      return $this->hasMany(my_Order::class, 'order_id');
-   }
+       return $this->hasMany(my_Order::class, 'order_id');
+    }
 
-   public function Users()
-   {
+    public function Users(){
 
-      return $this->belongsTo(User::class, 'user_id');
-   }
+        return $this->belongsTo(User::class, 'user_id');
+     }
 
-   public function Products()
-   {
+     public function Products(){
 
-      return $this->belongsTo(User::class, 'product_ID');
-   }
+        return $this->belongsTo(User::class, 'product_ID');
+     }
 
 }
