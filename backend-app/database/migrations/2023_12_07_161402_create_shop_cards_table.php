@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      */
@@ -19,13 +18,13 @@ return new class extends Migration
             $table->decimal('product_price', 10, 2);
             $table->string('Size', 50);
             $table->foreign('user_id')
-            ->references('id')
-            ->on('Users')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('Users')
+                ->onDelete('cascade');
             $table->foreign('product_id')
-            ->references('id')
-            ->on('Products')
-            ->onDelete('cascade');
+                ->references('id')
+                ->on('Products')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

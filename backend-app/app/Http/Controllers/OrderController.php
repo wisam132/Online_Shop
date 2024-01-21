@@ -34,7 +34,8 @@ class OrderController extends Controller
           products ON orders.product_id = products.id
       LEFT JOIN 
           users ON orders.user_id = users.id;
-      ");
+      "
+        );
 
         return response()->json([
 
