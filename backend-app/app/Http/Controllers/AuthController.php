@@ -16,8 +16,9 @@ use Illuminate\Support\Str;
 class AuthController extends Controller
 {
 
-    public function index()
-    {
+
+
+    public function index(){
 
         $user = User::where('role', 'user')->get();
         return response()->json([
@@ -33,21 +34,21 @@ class AuthController extends Controller
 
         $request->validate([
 
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'tel_number' => 'nullable',
-            'strasse' => 'required',
-            'ZIP_code' => 'required',
-            'photo' => 'nullable',
-            'password' => 'required'
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'email'=>'required',
+            'tel_number'=> 'nullable',
+            'strasse'=> 'required',
+            'ZIP_code'=>'required',
+            'photo'=>'nullable',
+            'password'=>'required'
         ]);
 
         $image = Str::random() . '.' . $request->photo->getClientOriginalExtension();
         Storage::disk('public')->putFileAs('user/image', $request->photo, $image);
 
-        try {
-
+        try{
+            
             $user = User::create([
                 'firstname' => $request->input('firstname'),
                 'lastname' => $request->input('lastname'),
@@ -59,19 +60,19 @@ class AuthController extends Controller
                 'photo' => $image
             ]);
 
-            return response()->json([
+        return response()->json([
 
-                'message' => 'Benutzer wurde erfolgreich hinzugefgt',
-                'user' => $user
+            'message' => 'Benutzer wurde erfolgreich hinzugefgt',
+            'user' => $user
 
-            ]);
-        } catch (\Exception $e) {
+        ]);
+        } catch (\Exception $e){
 
-            return response()->json([
+        return response()->json([
 
-                'message' => $e->getMessage()
-            ]);
-        }
+            'message' => $e->getMessage()
+        ]);
+    }
 
 
     }
@@ -83,24 +84,24 @@ class AuthController extends Controller
                 'message' => 'Invalid credentials!'
             ], Response::HTTP_UNAUTHORIZED);
         }
-
+    
         $user = Auth::user();
-
+    
         $token = $user->createToken('token')->plainTextToken;
-
+    
         $cookie = cookie('jwt', $token, 60 * 24); // 1 day
-
+    
         return response([
             'message' => $token,
             'role' => $user->role
 
         ])->withCookie($cookie);
     }
+    
+    
+    
 
-
-
-
-
+   
 
     public function logout()
     {
@@ -117,14 +118,14 @@ class AuthController extends Controller
     {
 
         $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required',
-            'tel_number' => 'nullable',
-            'strasse' => 'required',
-            'ZIP_code' => 'required',
-            'photo' => 'nullable',
-            'password' => 'required'
+            'firstname'=>'required',
+            'lastname'=>'required',
+            'email'=>'required',
+            'tel_number'=> 'nullable',
+            'strasse'=> 'required',
+            'ZIP_code'=>'required',
+            'photo'=>'nullable',
+            'password'=>'required'     
         ]);
 
         $image = Str::random() . '.' . $request->photo->getClientOriginalExtension();
@@ -142,7 +143,7 @@ class AuthController extends Controller
                 'photo' => $image,
                 'role' => 'admin'
             ]);
-
+        
             return response()->json([
                 'message' => 'Admin wurde erfolgreich hinzugefügt',
                 'Admin' => $admin
@@ -166,67 +167,67 @@ class AuthController extends Controller
                 Storage::disk('public')->delete($photoPath);
             }
         }
-
+    
         $user->delete();
-
+    
         return response()->json([
             'message' => 'User deleted successfully',
         ], 200);
     }
+    
 
 
+public function updateUser(Request $request, User $user)
+{
+    $request->validate([
+        'firstname' => 'required',
+        'lastname' => 'required',
+        'email' => 'required|email|unique:users,email,' . $user->id,
+        'tel_number' => 'nullable',
+        'strasse' => 'required',
+        'ZIP_code' => 'required',
+        'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
+        'password' => 'nullable|min:6' 
+    ]);
 
-    public function updateUser(Request $request, User $user)
-    {
-        $request->validate([
-            'firstname' => 'required',
-            'lastname' => 'required',
-            'email' => 'required|email|unique:users,email,' . $user->id,
-            'tel_number' => 'nullable',
-            'strasse' => 'required',
-            'ZIP_code' => 'required',
-            'photo' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg',
-            'password' => 'nullable|min:6'
+    try {
+        $user->update([
+            'firstname' => $request->input('firstname'),
+            'lastname' => $request->input('lastname'),
+            'email' => $request->input('email'),
+            'strasse' => $request->input('strasse'),
+            'tel_number' => $request->input('tel_number'),
+            'ZIP_code' => $request->input('ZIP_code'),
         ]);
 
-        try {
-            $user->update([
-                'firstname' => $request->input('firstname'),
-                'lastname' => $request->input('lastname'),
-                'email' => $request->input('email'),
-                'strasse' => $request->input('strasse'),
-                'tel_number' => $request->input('tel_number'),
-                'ZIP_code' => $request->input('ZIP_code'),
-            ]);
-
-            if ($request->filled('password')) {
-                $user->update(['password' => Hash::make($request->input('password'))]);
-            }
-
-            if ($request->hasFile('photo')) {
-                $image = Str::random() . '.' . $request->photo->getClientOriginalExtension();
-                Storage::disk('public')->putFileAs('user/image', $request->photo, $image);
-
-                if ($user->photo) {
-                    $exist = Storage::disk('public')->exists("user/image/{$user->photo}");
-                    if ($exist) {
-                        Storage::disk('public')->delete("user/image/{$user->photo}");
-                    }
-                }
-
-                $user->update(['photo' => $image]);
-            }
-
-            return response()->json([
-                'message' => 'Benutzer wurde erfolgreich aktualisiert',
-                'user' => $user
-            ]);
-        } catch (\Exception $e) {
-            return response()->json([
-                'message' => $e->getMessage()
-            ]);
+        if ($request->filled('password')) {
+            $user->update(['password' => Hash::make($request->input('password'))]);
         }
+
+        if ($request->hasFile('photo')) {
+            $image = Str::random() . '.' . $request->photo->getClientOriginalExtension();
+            Storage::disk('public')->putFileAs('user/image', $request->photo, $image);
+
+            if ($user->photo) {
+                $exist = Storage::disk('public')->exists("user/image/{$user->photo}");
+                if ($exist) {
+                    Storage::disk('public')->delete("user/image/{$user->photo}");
+                }
+            }
+
+            $user->update(['photo' => $image]);
+        }
+
+        return response()->json([
+            'message' => 'Benutzer wurde erfolgreich aktualisiert',
+            'user' => $user
+        ]);
+    } catch (\Exception $e) {
+        return response()->json([
+            'message' => $e->getMessage()
+        ]);
     }
+}
 
 
 
@@ -235,7 +236,7 @@ class AuthController extends Controller
     {
         return Auth::user();
     }
-
+    
     public function shopCardIndex()
     {
         return app(ShopCardController::class)->index();
@@ -245,34 +246,27 @@ class AuthController extends Controller
     {
         return app(OrderController::class)->store($request);
     }
+    
 
-
-    public function orderDestroy()
-    {
+    public function orderDestroy(){
 
         return app(OrderController::class)->destroy();
     }
 
-    public function myOrderIndex()
-    {
+    public function myOrderIndex(){
 
         return app(MyOrderController::class)->index();
     }
 
     public function __construct()
     {
-        $this->middleware('role:user', [
-            'only' => [
-            ]
-        ]);
+        $this->middleware('role:user', ['only' => [
+        ]]);
 
-        $this->middleware('auth:sanctum', [
-            'except' => [
-                'register',
-                'login'
-            ]
-        ]);
+        $this->middleware('auth:sanctum', ['except' => [
+            'register', 'login' 
+        ]]);
     }
-
+    
 
 }

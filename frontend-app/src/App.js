@@ -5,7 +5,6 @@ import {
   Geraete,
   KundenDaten,
   Moebel,
-
   Warenkorb,
   KundenProdukte,
   Home,
@@ -50,7 +49,7 @@ function App() {
                   <Route path="kleidung" element={<Kleidung />} />
                   <Route path="geraete" element={<Geraete />} />
                   <Route path="kundendaten" element={<KundenDaten />} />
-             
+
                   <Route path="moebel" element={<Moebel />} />
                   <Route path="warenkorb" element={<Warenkorb />} />
 
@@ -60,7 +59,6 @@ function App() {
                     path="kategorie/view/suche/:name"
                     element={<ViewSuche />}
                   />
-
                 </Routes>
               </Container>
               <Footer />
@@ -98,8 +96,7 @@ function App() {
                   path="Kunden_Produkte_Update/:id"
                   element={<AdminProdukteUpdate />}
                 />
-                
-               
+
                 <Route
                   path="Kunden_Bestellungen_Verwalten"
                   element={<AdminKundenBestellungenVerwalten />}

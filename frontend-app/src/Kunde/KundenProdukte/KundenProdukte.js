@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import Bild from "../../assets/images/background.jpg";
 import { MeineBestellungenCard } from "../../Compunent/index";
 import axios from "axios";
 import "./KundenProdukte.css";

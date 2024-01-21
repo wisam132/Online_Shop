@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import SectionWrapper from '../../Compunent/SectionWrapper/SectionWrapper'
-import axios from "axios"
+import React, { useEffect, useState } from "react";
+import SectionWrapper from "../../Compunent/SectionWrapper/SectionWrapper";
+import axios from "axios";
 
-export default function KundenBestellungenVerwalten ()  {
-  const [orders, setOrders] = useState([]); 
+export default function KundenBestellungenVerwalten() {
+  const [orders, setOrders] = useState([]);
 
   const fetchOrders = async () => {
     try {
@@ -11,22 +11,18 @@ export default function KundenBestellungenVerwalten ()  {
       setOrders(response.data.Orders);
       console.log("Nachricht:", orders.message);
       console.log("Bestellungen:", orders.Orders);
-
-      
     } catch (error) {
       console.error("Fehler beim Abrufen der Bestellungen:", error);
     }
-
   };
-  
-  useEffect(() => {
-    fetchOrders(); 
 
+  useEffect(() => {
+    fetchOrders();
   }, []);
 
-
   const handleDelete = (id) => {
-    axios.delete(`/api/delete/users/orders/${id}`)
+    axios
+      .delete(`/api/delete/users/orders/${id}`)
       .then(({ data }) => {
         console.log(data.message);
         fetchOrders();
@@ -35,9 +31,8 @@ export default function KundenBestellungenVerwalten ()  {
         console.log(data.message);
       });
   };
-  
-  const [filterValue, setFilterValue] = useState('');
 
+  const [filterValue, setFilterValue] = useState("");
 
   const handleInputChange = (event) => {
     setFilterValue(event.target.value.toLowerCase());
@@ -45,31 +40,39 @@ export default function KundenBestellungenVerwalten ()  {
 
   const filteredOrders = orders.filter((order) => {
     const filterValueLowerCase = filterValue.trim().toLowerCase();
-    const [firstNameFilter, lastNameFilter] = filterValueLowerCase.split(' ');
-  
+    const [firstNameFilter, lastNameFilter] = filterValueLowerCase.split(" ");
+
     return (
-      (typeof order.id === 'string' && order.id.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.user_id === 'string' && order.user_id.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.firstname === 'string' && order.firstname.toLowerCase().includes(firstNameFilter)) ||
-      (typeof order.lastname === 'string' && order.lastname.toLowerCase().includes(lastNameFilter)) ||
-      (typeof order.strasse === 'string' && order.strasse.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.email === 'string' && order.email.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.product_id === 'string' && order.product_id.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.product_name === 'string' && order.product_name.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.Size === 'string' && order.Size.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.quantity === 'string' && order.quantity.toLowerCase().includes(filterValueLowerCase)) ||
-      (typeof order.gesamt_preis === 'string' && order.gesamt_preis.toLowerCase().includes(filterValueLowerCase))
+      (typeof order.id === "string" &&
+        order.id.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.user_id === "string" &&
+        order.user_id.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.firstname === "string" &&
+        order.firstname.toLowerCase().includes(firstNameFilter)) ||
+      (typeof order.lastname === "string" &&
+        order.lastname.toLowerCase().includes(lastNameFilter)) ||
+      (typeof order.strasse === "string" &&
+        order.strasse.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.email === "string" &&
+        order.email.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.product_id === "string" &&
+        order.product_id.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.product_name === "string" &&
+        order.product_name.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.Size === "string" &&
+        order.Size.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.quantity === "string" &&
+        order.quantity.toLowerCase().includes(filterValueLowerCase)) ||
+      (typeof order.gesamt_preis === "string" &&
+        order.gesamt_preis.toLowerCase().includes(filterValueLowerCase))
     );
   });
-  
-
-
 
   return (
     <>
       <form>
         <SectionWrapper>
-        <input
+          <input
             className="form-control me-2 d-flex search-form"
             type="search"
             placeholder="Suchen"
@@ -95,7 +98,7 @@ export default function KundenBestellungenVerwalten ()  {
               </tr>
             </thead>
             <tbody>
-            {filteredOrders.map((order) => (
+              {filteredOrders.map((order) => (
                 <tr key={order.id}>
                   <th scope="row">{order.id}</th>
                   <td>{order.user_id}</td>
@@ -111,13 +114,21 @@ export default function KundenBestellungenVerwalten ()  {
                   <td>
                     <img
                       src={`/storage/product/image/${order.product_photo_primary}`}
-                      style={{ width: "100%", height: "200px", objectFit: "cover", objectPosition: "center" }}
+                      style={{
+                        width: "100%",
+                        height: "200px",
+                        objectFit: "cover",
+                        objectPosition: "center",
+                      }}
                       alt=""
                       className="produkt-verwalten-image"
                     />
                   </td>
                   <td>
-                    <button className="delete-button" onClick={() => handleDelete(order.id)}>
+                    <button
+                      className="delete-button"
+                      onClick={() => handleDelete(order.id)}
+                    >
                       Löschen
                     </button>
                   </td>
@@ -129,6 +140,4 @@ export default function KundenBestellungenVerwalten ()  {
       </form>
     </>
   );
-  
 }
-

@@ -11,7 +11,9 @@ use Illuminate\Support\Facades\DB;
 
 class ShopCardController extends Controller
 {
-
+    /**
+     * Display a listing of the resource.
+     */
     public function index()
     {
         $userId = auth()->id();
@@ -46,8 +48,7 @@ class ShopCardController extends Controller
     }
 
 
-    public function SelectTotalPrice()
-    {
+    public function SelectTotalPrice(){
         $userId = auth()->id();
 
         $totalPrice = DB::select(
@@ -74,7 +75,7 @@ class ShopCardController extends Controller
 
         return response()->json([
             'total_price' => $totalPrice,
-        ], 200);
+        ],200);
     }
 
     public function __construct()
@@ -82,7 +83,17 @@ class ShopCardController extends Controller
         $this->middleware('auth:sanctum');
     }
 
+    /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+        //
+    }
 
+    /**
+     * Store a newly created resource in storage.
+     */
     public function store(Request $request)
     {
         $request->validate([
@@ -106,8 +117,33 @@ class ShopCardController extends Controller
         ]);
     }
 
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $id)
+    {
+        //
+    }
 
+    /**
+     * Show the form for editing the specified resource.
+     */
+    public function edit(string $id)
+    {
+        //
+    }
 
+    /**
+     * Update the specified resource in storage.
+     */
+    public function update(Request $request, string $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
     public function destroy(string $id)
     {
         $shopCard = Shop_Card::findOrFail($id);

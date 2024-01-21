@@ -1,15 +1,13 @@
-import React from 'react'
-import './AddProductCard.css'
+import React from "react";
+import "./AddProductCard.css";
 import $ from "jquery";
 import "jquery-ui-dist/jquery-ui";
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-
-export default function AddProductCard(props){
-
+export default function AddProductCard(props) {
   const navigate = useNavigate();
 
   const [product_name, setProduct_name] = useState("");
@@ -36,7 +34,6 @@ export default function AddProductCard(props){
   function handleNameChange(e) {
     setProduct_name(e.target.value);
   }
-
 
   function handleMarkeChange(e) {
     setProduct_marke(e.target.value);
@@ -150,7 +147,7 @@ export default function AddProductCard(props){
       .post("/api/product/add", formData)
       .then(({ data }) => {
         console.log(data.message);
-      navigate("/admin");
+        navigate("/admin");
       })
       .catch(({ response }) => {
         if (response.status === 422) {
@@ -160,7 +157,6 @@ export default function AddProductCard(props){
         }
       });
   }
-
 
   useEffect(() => {
     $(function () {
@@ -194,271 +190,249 @@ export default function AddProductCard(props){
     });
   }, []);
   return (
-<>
-{props.children}
+    <>
+      {props.children}
 
-    <form onSubmit= {handleCangeInput}>
-    
-      <div className="produkt-erstellen-section">
-        <div className="produkt-erstellen-form">
-          <div className="form-group produkt-erstellen-daten">
-            <label>Produkt Name</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Produkt Name"
-              onChange={handleNameChange}
+      <form onSubmit={handleCangeInput}>
+        <div className="produkt-erstellen-section">
+          <div className="produkt-erstellen-form">
+            <div className="form-group produkt-erstellen-daten">
+              <label>Produkt Name</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Produkt Name"
+                onChange={handleNameChange}
+              />
+            </div>
 
-              
-            />
+            <div className="form-group produkt-erstellen-daten">
+              <label>Produkt Marke</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Produkt Marke"
+                onChange={handleMarkeChange}
+              />
+            </div>
+
+            <div className="form-group produkt-erstellen-daten">
+              <label>Produkt Preis</label>
+              <input
+                type="text"
+                className="form-control"
+                placeholder="Produkt Preis"
+                onChange={handlePriceChange}
+              />
+            </div>
+
+            <div className="form-group">
+              <label>Produkt Beschreibung</label>
+              <textarea
+                className="form-control"
+                rows="3"
+                onChange={handleDescChange}
+              ></textarea>
+            </div>
+
+            <div className="form-group">
+              <label>Bild hochladen</label>
+              <input
+                type="file"
+                className="form-control-file"
+                onChange={handlePrimaryPhotoChange}
+              />
+            </div>
           </div>
 
+          <div className="produkt-erstellen-image-upload">
+            <button
+              id="button"
+              className="ui-state-default ui-corner-all produkt-erstellen-button"
+            >
+              Mehr Bilder hochladen
+            </button>
 
+            <div id="effect1">
+              <div id="effect1">
+                <div className="form-group">
+                  <label
+                    for="exampleFormControlFile1"
+                    className="produkt-erstellen-label"
+                  >
+                    Bild 1
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control-file produkt-erstellen-type-file"
+                    id="exampleFormControlFile1"
+                    onChange={handleSecondaryPhotoChange1}
+                  />
+                </div>
 
-          <div className="form-group produkt-erstellen-daten">
-            <label>Produkt Marke</label>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Produkt Marke"
-              onChange={handleMarkeChange}
+                <div className="form-group">
+                  <label
+                    for="exampleFormControlFile1"
+                    className="produkt-erstellen-label"
+                  >
+                    Bild 2
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control-file produkt-erstellen-type-file"
+                    id="exampleFormControlFile1"
+                    onChange={handleSecondaryPhotoChange2}
+                  />
+                </div>
 
-              
-            />
+                <div className="form-group">
+                  <label
+                    for="exampleFormControlFile1"
+                    className="produkt-erstellen-label"
+                  >
+                    Bild 3
+                  </label>
+                  <input
+                    type="file"
+                    className="form-control-file produkt-erstellen-type-file"
+                    id="exampleFormControlFile1"
+                    onChange={handleSecondaryPhotoChange3}
+                  />
+                </div>
+              </div>{" "}
+            </div>
           </div>
 
-          <div className="form-group produkt-erstellen-daten">
-            <label>Produkt Preis</label>
-             <input
-               type="text"
-               className="form-control"
-               placeholder="Produkt Preis"
-               onChange={handlePriceChange}
+          <div className="produkt-erstellen-size-upload">
+            <button
+              id="button2"
+              className="ui-state-default ui-corner-all bilder-erstellen-button"
+            >
+              Mehr Größe hochladen
+            </button>
+            <br />
+            <div id="effect2">
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 1
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 1"
+                  onChange={handleSizeChange1}
+                />
+              </div>
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 2
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 2"
+                  onChange={handleSizeChange2}
+                />
+              </div>
 
-             />
-           </div>
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 3
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 3"
+                  onChange={handleSizeChange3}
+                />
+              </div>
 
-           <div className="form-group">
-             <label>Produkt Beschreibung</label>
-             <textarea
-               className="form-control"
-               rows="3"
-               onChange={handleDescChange}
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 4
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 4"
+                  onChange={handleSizeChange4}
+                />
+              </div>
 
-             ></textarea>
-           </div>
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 5
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 5"
+                  onChange={handleSizeChange5}
+                />
+              </div>
 
-           <div className="form-group">
-             <label>Bild hochladen</label>
-             <input
-               type="file"
-               className="form-control-file"
-               onChange={handlePrimaryPhotoChange}
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 6
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 6"
+                  onChange={handleSizeChange6}
+                />
+              </div>
 
-             />
-           </div>
-         </div>
+              <div className="form-group">
+                <label
+                  for="formGroupExampleInput"
+                  className="produkt-erstellen-size-label"
+                >
+                  Größe 7
+                </label>
+                <input
+                  type="text"
+                  className="form-control prosi"
+                  id="formGroupExampleInput"
+                  placeholder="Größe 7"
+                  onChange={handleSizeChange7}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
 
-         <div className="produkt-erstellen-image-upload">
-           <button
-             id="button"
-             className="ui-state-default ui-corner-all produkt-erstellen-button"
-           >
-             Mehr Bilder hochladen
-           </button>
-
-           <div id="effect1">
-             <div id="effect1">
-               <div className="form-group">
-                 <label
-                   for="exampleFormControlFile1"
-                   className="produkt-erstellen-label"
-                 >
-                   Bild 1
-                 </label>
-                 <input
-                   type="file"
-                   className="form-control-file produkt-erstellen-type-file"
-                   id="exampleFormControlFile1"
-                   onChange={handleSecondaryPhotoChange1}
-
-                   
-                 />
-               </div>
-
-               <div className="form-group">
-                 <label
-                   for="exampleFormControlFile1"
-                   className="produkt-erstellen-label"
-                 >
-                   Bild 2
-                 </label>
-                 <input
-                   type="file"
-                   className="form-control-file produkt-erstellen-type-file"
-                   id="exampleFormControlFile1"
-                   onChange={handleSecondaryPhotoChange2}
-
-                 />
-               </div>
-
-               <div className="form-group">
-                 <label
-                   for="exampleFormControlFile1"
-                   className="produkt-erstellen-label"
-                 >
-                   Bild 3
-                 </label>
-                 <input
-                   type="file"
-                   className="form-control-file produkt-erstellen-type-file"
-                   id="exampleFormControlFile1"
-                   onChange={handleSecondaryPhotoChange3}
-
-                 />
-               </div>
-             </div>{" "}
-           </div>
-         </div>
-
-         <div className="produkt-erstellen-size-upload">
-           <button
-             id="button2"
-             className="ui-state-default ui-corner-all bilder-erstellen-button"
-           >
-             Mehr Größe hochladen
-           </button>
-           <br />
-           <div id="effect2">
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 1
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 1"
-                 onChange={handleSizeChange1}
-
-               />
-             </div>
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 2
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 2"
-                 onChange={handleSizeChange2}
-
-               />
-             </div>
-
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 3
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 3"
-                 onChange={handleSizeChange3}
-
-               />
-             </div>
-
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 4
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 4"
-                 onChange={handleSizeChange4}
-
-               />
-             </div>
-
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 5
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 5"
-                 onChange={handleSizeChange5}
-
-               />
-             </div>
-
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 6
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 6"
-                 onChange={handleSizeChange6}
-
-               />
-             </div>
-
-             <div className="form-group">
-               <label
-                 for="formGroupExampleInput"
-                 className="produkt-erstellen-size-label"
-               >
-                 Größe 7
-               </label>
-               <input
-                 type="text"
-                 className="form-control prosi"
-                 id="formGroupExampleInput"
-                 placeholder="Größe 7"
-                 onChange={handleSizeChange7}
-
-               />
-             </div>
-           </div>
-         </div>
-       </div>
-
-       <button
-         type="submit"
-         className="btn btn-secondary produkt-erstellen-enter-button"
-       >
-         Daten Speichern
-       </button>
-     </form>
-     </>
-   );
+        <button
+          type="submit"
+          className="btn btn-secondary produkt-erstellen-enter-button"
+        >
+          Daten Speichern
+        </button>
+      </form>
+    </>
+  );
 }
-

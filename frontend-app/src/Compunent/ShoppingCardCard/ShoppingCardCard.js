@@ -5,7 +5,9 @@ const ShoppingCardCard = (props) => {
   return (
     <div className="shopping-card-section-wrapper">
       <div>
-        <button className="shopping-card-x-button" onClick={props.delete}>X</button>
+        <button className="shopping-card-x-button" onClick={props.delete}>
+          X
+        </button>
         <img
           src={props.bild}
           className="shopping-card-image"
@@ -18,9 +20,7 @@ const ShoppingCardCard = (props) => {
       </div>
 
       <div className="list-inline pb-3 shopping-card-counter">
-
         <h5 className="shopping-card-counter-value">{props.value}</h5>{" "}
-       
       </div>
 
       <p className="shopping-card-price">{props.price}</p>

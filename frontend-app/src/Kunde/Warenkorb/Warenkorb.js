@@ -18,7 +18,6 @@ export default function Warenkorb(props) {
       setProducts(
         response.data.item.map((product) => ({ ...product, counter: 0 }))
       );
-      console.log(response.data.item);
      props.anzahl = ("Anzahl =>"+response.data.item.length)
 
     } catch (error) {
