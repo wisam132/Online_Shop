@@ -5,31 +5,25 @@ import "./KundenDatenVerwalten.css";
 import SectionWrapper from "../../Compunent/SectionWrapper/SectionWrapper";
 
 export default function KundenDatenVerwalten() {
+
   /* Suchen */
 
-  const [filterValue, setFilterValue] = useState("");
+  const [filterValue, setFilterValue] = useState('');
   const [users, setUsers] = useState([]);
-
+  
   const handleInputChange = (event) => {
     setFilterValue(event.target.value.toLowerCase());
   };
 
-  const filteredUsers = users.filter(
-    (user) =>
-      (user.id && user.id.toString().toLowerCase().includes(filterValue)) ||
-      (user.firstname &&
-        user.firstname.toString().toLowerCase().includes(filterValue)) ||
-      (user.lastname &&
-        user.lastname.toString().toLowerCase().includes(filterValue)) ||
-      (user.email &&
-        user.email.toString().toLowerCase().includes(filterValue)) ||
-      (user.tel_number &&
-        user.tel_number.toString().toLowerCase().includes(filterValue)) ||
-      (user.strasse &&
-        user.strasse.toString().toLowerCase().includes(filterValue)) ||
-      (user.ZIP_code &&
-        user.ZIP_code.toString().toLowerCase().includes(filterValue))
-  );
+  const filteredUsers = users.filter((user) =>
+  (user.id && user.id.toString().toLowerCase().includes(filterValue)) ||
+  (user.firstname && user.firstname.toString().toLowerCase().includes(filterValue)) ||
+  (user.lastname && user.lastname.toString().toLowerCase().includes(filterValue)) ||
+  (user.email && user.email.toString().toLowerCase().includes(filterValue)) ||
+  (user.tel_number && user.tel_number.toString().toLowerCase().includes(filterValue)) ||
+  (user.strasse && user.strasse.toString().toLowerCase().includes(filterValue)) ||
+  (user.ZIP_code && user.ZIP_code.toString().toLowerCase().includes(filterValue))
+);
 
   /* Get all Users */
 
@@ -53,10 +47,7 @@ export default function KundenDatenVerwalten() {
       await axios.delete("/api/delete/user/" + id);
       fetchUsers();
     } catch (error) {
-      console.error(
-        error.response?.data?.message ||
-          "An error occurred while deleting the user"
-      );
+      console.error(error.response?.data?.message || "An error occurred while deleting the user");
     }
   };
 
@@ -103,10 +94,7 @@ export default function KundenDatenVerwalten() {
                   <td>{user.strasse}</td>
                   <td>{user.ZIP_code}</td>
                   <td>
-                    <button
-                      className="delete-button"
-                      onClick={() => deleteUser(user.id)}
-                    >
+                    <button className="delete-button" onClick={() => deleteUser(user.id)}>
                       Löschen
                     </button>
                   </td>

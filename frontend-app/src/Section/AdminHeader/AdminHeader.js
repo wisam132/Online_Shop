@@ -6,7 +6,7 @@ import {
   FaPlus,
 } from "react-icons/fa";
 
-import { MdPersonAdd } from "react-icons/md";
+import { MdPersonAdd } from 'react-icons/md';
 
 import logo from "../../assets/images/logo-omar.jpeg";
 
@@ -33,7 +33,7 @@ export default function AdminHeader() {
         <div className="container-fluid">
           <Link to={"/admin"}>
             <img src={logo} alt="" className="my-logo" />
-          </Link>
+          </Link>{" "}
           <button
             className="navbar-toggler"
             type="button"
@@ -52,17 +52,17 @@ export default function AdminHeader() {
                   to={"/admin/dashboard/Kunden_Daten_Verwalten"}
                   className="nav-link active"
                 >
-                  
+                  {" "}
                   <span className="icon">
                     <FaUserEdit />
-                  </span>
+                  </span>{" "}
                   Kundendaten verwalten
                 </Link>
               </li>
 
               <li className="nav-item">
                 <Link to={"/admin"} className="nav-link active">
-                  
+                  {" "}
                   <span className="icon" style={{ paddingRight: "10px" }}>
                     <FaBoxOpen />
                   </span>
@@ -75,20 +75,24 @@ export default function AdminHeader() {
                   to={"/admin/dashboard/Kunden_Bestellungen_Verwalten"}
                   className="nav-link active"
                 >
-                  
+                  {" "}
                   <span className="icon">
                     <FaShoppingBasket />
-                  </span>
+                  </span>{" "}
                   Kundenbestellungen verwalten
                 </Link>
               </li>
 
+
               <li className="nav-item">
-                <Link to={"/admin/registrieren"} className="nav-link active">
-                  
+                <Link
+                  to={"/admin/registrieren"}
+                  className="nav-link active"
+                >
+                  {" "}
                   <span className="icon">
                     <MdPersonAdd />
-                  </span>
+                  </span>{" "}
                   Admin registrieren
                 </Link>
               </li>
@@ -134,19 +138,14 @@ export default function AdminHeader() {
                       Möbel
                     </Link>
                   </li>
+
+                  
                 </ul>
               </li>
 
               <li className="nav-item">
-                <button
-                  onClick={handleLogout}
-                  className="nav-link"
-                  style={{ border: "none", backgroundColor: "white" }}
-                >
-                  <span className="icon">
-                    <FiLogOut />
-                  </span>
-                  Abmelden
+                <button onClick={handleLogout} className="nav-link" style={{ border: "none", backgroundColor: "white" }}>
+                  <span className="icon"><FiLogOut /></span> Abmelden
                 </button>
               </li>
             </ul>

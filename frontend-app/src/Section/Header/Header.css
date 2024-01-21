@@ -30,11 +30,12 @@
 
 }
 
+/* Beispiel-CSS für die Anzahl der Artikel im Warenkorb */
 .warenkorb-anzahl {
-  background-color: rgba(181, 180, 191, 0.359); 
-  color: black; 
-  border-radius: 50%; 
-  padding: 0.2em 0.5em; 
+  background-color: rgba(181, 180, 191, 0.359); /* Hintergrundfarbe */
+  color: black; /* Textfarbe */
+  border-radius: 50%; /* Rundes Erscheinungsbild */
+  padding: 0.2em 0.5em; /* Innenabstand */
   top: 2px;
   position: relative;
 }

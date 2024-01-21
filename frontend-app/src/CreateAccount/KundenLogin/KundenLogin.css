@@ -1,3 +1,4 @@
+/* Allgemeine Stile für das Formular */
 .formular {
     max-width: 400px;
     margin: 0 auto;
@@ -12,6 +13,7 @@
     
   }
   
+  /* Stile für Formulareingabefelder */
   .form-group {
     margin-bottom: 15px;
   }
@@ -30,6 +32,7 @@
   }
   
   
+  /* Stile für die Schaltfläche */
   .zer {
    
     position: relative;
@@ -45,6 +48,7 @@
 
 
   
+  /* Hover-Effekt für die Schaltfläche */
   .zer:hover {
     background-color: rgba(45, 46, 48, 0.8);
     color: white;
@@ -62,6 +66,7 @@
   transition: background-color 0.3s ease;
 }
 
+/* Hover-Effekt für den Link */
 .zerErstellen:hover {
   background-color: #2980b9;
 }

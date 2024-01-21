@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { SeitenSectios, SeiteCard, Search } from "../../Compunent/index";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { SeitenSectios, SeiteCard, Search } from '../../Compunent/index';
 
 export default function AddKategorieCard(props) {
   const [products, setProducts] = useState([]);
@@ -17,17 +17,19 @@ export default function AddKategorieCard(props) {
       const response = await axios.get(props.url);
       setProducts(response.data);
     } catch (error) {
-      console.error("Error fetching products:", error);
+      console.error('Error fetching products:', error);
     }
   };
 
   return (
     <>
-      <Search />
+          <Search />
 
       <SeitenSectios>
+
         <div className="container py-5">
-          <div className="row text-center py-3"></div>
+          <div className="row text-center py-3">
+          </div>
 
           {loading ? (
             <p>Loading...</p>

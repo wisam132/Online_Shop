@@ -1,16 +1,18 @@
-import React, { useState } from "react";
-import "./KundenLogin.css";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
+import React, {  useState } from 'react';
+import './KundenLogin.css';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const KundenLogin = () => {
   const navigate = useNavigate();
 
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState("");
+  
+
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -26,33 +28,33 @@ const KundenLogin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  
     try {
-      const response = await axios.post(
-        "/api/user/login",
-        {
-          email,
-          password,
-        },
-        {
-          withCredentials: true,
-        }
-      );
+      const response = await axios.post('/api/user/login', {
+        email,
+        password,
+      },
+      {  
+        withCredentials: true,
+      });
+  
+      const userRole = response.data.role; 
 
-      const userRole = response.data.role;
-
-      if (userRole === "admin") {
-        navigate("/admin");
+  
+      if (userRole === 'admin') {
+        navigate("/admin"); 
       } else {
         navigate("/shop/home");
       }
-
+  
       console.log("Benutzerrolle: " + userRole);
     } catch (error) {
-      console.error("Login failed:", error.response?.data || error.message);
+      console.error('Login failed:', error.response?.data || error.message);
       setError("Email oder Passwort wurde falsch eingegeben");
     }
   };
+  
+  
 
   return (
     <>
@@ -72,7 +74,7 @@ const KundenLogin = () => {
         <div className="form-group">
           <label htmlFor="exampleInputPassword1">Passwort</label>
           <input
-            type={showPassword ? "text" : "password"}
+            type={showPassword ? 'text' : 'password'}
             className="form-control"
             id="exampleInputPassword1"
             placeholder="Passwort"
@@ -87,11 +89,7 @@ const KundenLogin = () => {
             id="exampleCheck1"
             onChange={handleCheckboxChange}
           />
-          <label
-            className="form-check-label"
-            htmlFor="exampleCheck1"
-            id="check"
-          >
+          <label className="form-check-label" htmlFor="exampleCheck1" id="check">
             Passwort anzeigen
           </label>
         </div>
@@ -100,12 +98,12 @@ const KundenLogin = () => {
         </button>
         <br />
         <br />
-        <Link className="zerErstellen" to={"/registrieren"}>
+        <Link className="zerErstellen" to={'/registrieren'}>
           Konto Erstellen
         </Link>
         <br />
         <br />
-        <p style={{ color: "red", textDecoration: "underline" }}>{error}</p>
+        <p style={{color:"red", textDecoration:"underline"}}>{error}</p>
       </form>
     </>
   );

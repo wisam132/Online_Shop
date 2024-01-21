@@ -10,10 +10,8 @@ export default function ViewSuche() {
 
   const fetchProducts = async () => {
     try {
-      const response = await axios.get(
-        `/api/products/viewByName/${name}/${name}`
-      );
-      setProducts(response.data.products);
+      const response = await axios.get(`/api/products/viewByName/${name}/${name}`);
+      setProducts(response.data.products); 
       console.log(response.data);
     } catch (err) {
       console.error(err);
@@ -30,7 +28,7 @@ export default function ViewSuche() {
         <SeitenSectios>
           <div className="container py-5">
             <div className="row text-center py-3"></div>
-
+  
             <div className="row">
               {products.map((row) => (
                 <SeiteCard
@@ -49,5 +47,6 @@ export default function ViewSuche() {
         <p>Es wurden keine Produkte für den Suchbegriff {name} gefunden. </p>
       )}
     </>
+  
   );
 }

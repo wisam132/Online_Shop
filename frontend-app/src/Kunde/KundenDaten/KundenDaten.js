@@ -51,35 +51,39 @@ export default function KundenDaten() {
     fetchUser();
   }, []);
 
-  /* Update User */
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    const formData = new FormData();
-    formData.append("_method", "PUT");
-    formData.append("firstname", firstname);
-    formData.append("lastname", lastname);
-    formData.append("email", email);
-    formData.append("strasse", strasse);
-    formData.append("tel_number", tel_number);
-    formData.append("ZIP_code", ZIP_code);
+ /* Update User */
 
-    if (photo !== null) {
-      formData.append("photo", photo);
+const handleSubmit = async (e) => {
+  e.preventDefault();
+  const formData = new FormData();
+  formData.append('_method', 'PUT');
+  formData.append("firstname", firstname);
+  formData.append("lastname", lastname);
+  formData.append("email", email);
+  formData.append("strasse", strasse);
+  formData.append("tel_number", tel_number);
+  formData.append("ZIP_code", ZIP_code);
+
+
+  if (photo !== null) {
+    formData.append("photo", photo);
+  }
+  
+
+  try {
+    await axios.post(`/api/user/update/${id}`, formData);
+    console.log("Formular erfolgreich geändert");
+    navigate('/shop/home');
+  } catch ({ response }) {
+    if (response.status === 422) {
+      console.log(response.data.errors);
+    } else {
+      console.log(response.data.message);
     }
+  }
+};
 
-    try {
-      await axios.post(`/api/user/update/${id}`, formData);
-      console.log("Formular erfolgreich geändert");
-      navigate("/shop/home");
-    } catch ({ response }) {
-      if (response.status === 422) {
-        console.log(response.data.errors);
-      } else {
-        console.log(response.data.message);
-      }
-    }
-  };
 
   return (
     <>

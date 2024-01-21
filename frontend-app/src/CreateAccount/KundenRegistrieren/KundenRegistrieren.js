@@ -61,9 +61,9 @@ export default function KundenRegistrieren() {
     data.append("tel_number", telefonnummer);
     data.append("ZIP_code", plz);
     data.append("password", passwort);
-    if (image !== null) {
-      data.append("photo", image);
-    }
+    if(image !== null){
+    data.append("photo", image);
+}
     if (passwort !== passwort2) {
       setError("Die Passwörter sind ungleich");
       return;
@@ -76,7 +76,7 @@ export default function KundenRegistrieren() {
         navigate("/");
       })
       .catch(({ response }) => {
-        if (response && response.status === 422) {
+        if (response && response.status == 422) {
           console.log(response.data.errors);
         } else {
           console.log(response ? response.data.message : "");
@@ -181,8 +181,8 @@ export default function KundenRegistrieren() {
               className="form-control"
               id="passwortBestätigen"
               placeholder="Passwort Bestätigen"
-              onChange={handlePasswort2Change}
-              value={passwort2}
+              onChange={handlePasswort2Change} 
+              value={passwort2} 
             />
             {showPassword ? (
               <FaEyeSlash
@@ -205,7 +205,7 @@ export default function KundenRegistrieren() {
           onChange={handleImageChange}
         />
         <br />
-        <p style={{ color: "red" }}>{error}</p>
+        <p style={{color :"red"}}>{error}</p>
 
         <button type="submit" className="Admin-zer">
           Eingeben

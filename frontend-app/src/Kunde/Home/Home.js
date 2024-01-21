@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import { HomeCard } from "../../Compunent/index";
 import OwlCarousel from "react-owl-carousel";
@@ -11,7 +12,8 @@ import "./Home.css";
 import axios from "axios";
 
 export default function Home() {
-  const navigation = useNavigate;
+
+  const navigation = useNavigate
   const [Kleidung, setKleidung] = useState(null);
   const [Moebel, setMoebel] = useState(null);
   const [Gerarte, setGerarte] = useState(null);
