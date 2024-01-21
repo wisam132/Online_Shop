@@ -30,8 +30,8 @@ export default function ViewsSection(props) {
                       className="icon"
                       style={{ color: "black", fontSize: "30px" }}
                     >
-                      {" "}
-                      <IoArrowBackSharp />{" "}
+                      
+                      <IoArrowBackSharp />
                     </span>
                   </a>
                 </div>
@@ -161,8 +161,8 @@ export default function ViewsSection(props) {
                       className="icon"
                       style={{ color: "black", fontSize: "30px" }}
                     >
-                      {" "}
-                      <IoArrowForwardSharp />{" "}
+                      
+                      <IoArrowForwardSharp />
                     </span>
                   </a>
                 </div>
@@ -232,7 +232,7 @@ export default function ViewsSection(props) {
                       <div className="col-auto">
                         <ul className="list-inline pb-3">
                           <li className="list-inline-item text-right">
-                            Quantity
+                            Anzahl
                             <input
                               type="hidden"
                               name="product-quanity"
@@ -278,7 +278,7 @@ export default function ViewsSection(props) {
                           name="submit"
                           value="addtocard"
                         >
-                          Add To Cart
+                          Zum Warenkorb hinzufügen
                         </button>
                       </div>
                     </div>
